@@ -1,6 +1,6 @@
 package HomeWork080223;
 
-public class Bus extends Transport <DriverCatD>{
+public class Bus extends Transport<DriverCatD> {
     public Bus(String brand, String model, double engineVolume, DriverCatD driver) {
         super(brand, model, engineVolume, driver);
     }
@@ -32,4 +32,5 @@ public class Bus extends Transport <DriverCatD>{
     @Override
     public void maxSpeed() {
     }
+
 }
