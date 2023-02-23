@@ -89,6 +89,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         ServiceStation.addCarToQueue(this);
     }
 
+    static List<Mechanic> mechanics = new ArrayList<>();
     enum Type {
         CAR("легковой автомобиль"),
         TRUCK("грузовой автомобиль"),
