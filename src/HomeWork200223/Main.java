@@ -89,7 +89,7 @@ public class Main {
         Mechanic mechanic3 = new Mechanic("Sidorov", "catD");
 
         System.out.println("\nПолный список механиков, осуществляющих ТО:");
-        System.out.println(Mechanic.mechanics);
+        System.out.println(Transport.mechanics);
 
         System.out.println("\nОчередь на ТО составляет: " + ServiceStation.queue.size() + " участников");
         System.out.println(Transport.allTransport);

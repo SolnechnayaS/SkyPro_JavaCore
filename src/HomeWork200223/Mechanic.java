@@ -24,11 +24,11 @@ public class Mechanic {
         this.categorie = categorie;
     }
 
-    static List<Mechanic> mechanics = new ArrayList<>();
+
     public Mechanic(String name, String categorie) {
         this.name = name;
         this.categorie = categorie;
-        mechanics.add(this);
+        Transport.mechanics.add(this);
     }
 
     @Override
