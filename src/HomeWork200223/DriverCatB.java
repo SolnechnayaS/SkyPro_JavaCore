@@ -6,7 +6,12 @@ public class DriverCatB extends Driver {
 
     public DriverCatB(String name, int stage, boolean driveLicense, String catB) {
         super(name, stage, driveLicense);
-        this.catB = catB;
+
+        if (catB != null && !catB.isBlank()) {
+            this.catB = catB;
+        } else {
+            this.catB = "B";
+        }
     }
 
     @Override

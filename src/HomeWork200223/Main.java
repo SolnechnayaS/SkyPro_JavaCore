@@ -99,6 +99,22 @@ public class Main {
             ServiceStation.checkUp(ServiceStation.queue);
         }
 
+        Driver.drivers.add(new DriverCatB("M.A. Mashinin ", 3, true, ""));
+        Driver.drivers.add(new DriverCatD("A.D. Avtobusov ", 5, true, ""));
+        Driver.drivers.add(new DriverCatC("G.C. Gruzov ", 10, true, ""));
+        Driver.drivers.add(new DriverCatB("Mashinin M.A.", 3, true, ""));
+        Driver.drivers.add(new DriverCatD("Avtobusov A.D.", 5, true, ""));
+        Driver.drivers.add(new DriverCatC("Gruzov G.C.", 10, true, ""));
+
+        Driver.drivers.add(new DriverCatB("M.A. Mashinin ", 3, true, ""));
+        Driver.drivers.add(new DriverCatD("A.D. Avtobusov ", 5, true, ""));
+        Driver.drivers.add(new DriverCatC("G.C. Gruzov ", 10, true, ""));
+        Driver.drivers.add(new DriverCatB("Mashinin M.A.", 3, true, ""));
+        Driver.drivers.add(new DriverCatD("Avtobusov A.D.", 5, true, ""));
+        Driver.drivers.add(new DriverCatC("Gruzov G.C.", 10, true, ""));
+
+        System.out.println("\nВсего водителей в базе: " + Driver.drivers.size() + " человек");
+        System.out.println(Driver.drivers);
     }
 
     public static void printInfo(Transport<?> transport) {
