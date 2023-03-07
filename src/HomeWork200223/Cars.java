@@ -1,11 +1,13 @@
 package HomeWork200223;
 
+import java.util.List;
+
 public class Cars extends Transport<DriverCatB> {
 
     private BodyType bodyType;
 
-    public Cars(String brand, String model, double engineVolume, DriverCatB driver, Type type, BodyType bodyType) {
-        super(brand, model, engineVolume, driver, type);
+    public Cars(String brand, String model, double engineVolume, DriverCatB driver, Transport.Type type, List <Mechanic> mechanics, BodyType bodyType) {
+        super(brand, model, engineVolume, driver, type, mechanics);
         this.bodyType = bodyType;
     }
 

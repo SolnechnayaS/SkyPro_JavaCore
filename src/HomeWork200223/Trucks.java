@@ -1,10 +1,12 @@
 package HomeWork200223;
 
+import java.util.List;
+
 public class Trucks extends Transport<DriverCatC> {
     private Tonnage tonnage;
 
-    public Trucks(String brand, String model, double engineVolume, DriverCatC driver, Type type, Tonnage tonnage) {
-        super(brand, model, engineVolume, driver, type);
+    public Trucks(String brand, String model, double engineVolume, DriverCatC driver, Transport.Type type, List <Mechanic> mechanics, Tonnage tonnage) {
+        super(brand, model, engineVolume, driver, type, mechanics);
         this.tonnage = tonnage;
     }
 

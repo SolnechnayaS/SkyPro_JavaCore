@@ -1,7 +1,9 @@
 package HomeWork200223;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Transport<T extends Driver> implements Competing {
 
@@ -15,6 +17,36 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     private T driver;
     private T tonnage;
+//    List<Transport> allTransport = new ArrayList<>();
+//
+//    public List<Transport> getAllTransport() {
+//        return allTransport;
+//    }
+//
+//    public void setAllTransport(List<Transport> allTransport) {
+//        this.allTransport = allTransport;
+//    }
+
+    private Mechanic mechanic;
+    private List<Mechanic> mechanics = new ArrayList<>();
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public void setMechanics(List<Mechanic> mechanics) {
+        this.mechanics = mechanics;
+    }
+
+    private Set<Driver> drivers = new HashSet<>();
+
+    public Set<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(Set<Driver> drivers) {
+        this.drivers = drivers;
+    }
 
     public T getDriver() {
         return driver;
@@ -57,15 +89,16 @@ public abstract class Transport<T extends Driver> implements Competing {
     }
 
     public String toString() {
-        return "тип ТС: " + type + ",\t" +
-                "марка: " + brand + ",\t" +
-                "модель: " + model + ",\t" +
-                "объем двигателя: " + engineVolume;
+        return "тип ТС: " + type + ", " +
+                "марка: " + brand + ", " +
+                "модель: " + model + ", " +
+                "объем двигателя: " + engineVolume + ", " +
+                "обслуживают механики: " + mechanics;
     }
 
-    static List<Transport> allTransport = new ArrayList<>();
 
-    public Transport(String brand, String model, double engineVolume, T driver, Type type) {
+
+    public Transport(String brand, String model, double engineVolume, T driver, Type type, List <Mechanic> mechanics) {
         if (brand != null && !brand.isBlank()) {
             this.brand = brand;
         } else {
@@ -85,11 +118,10 @@ public abstract class Transport<T extends Driver> implements Competing {
         setDriver(driver);
         this.type = type;
 
-        allTransport.add(this);
-        ServiceStation.addCarToQueue(this);
+        this.mechanics = mechanics;
     }
 
-    static List<Mechanic> mechanics = new ArrayList<>();
+
     enum Type {
         CAR("легковой автомобиль"),
         TRUCK("грузовой автомобиль"),
