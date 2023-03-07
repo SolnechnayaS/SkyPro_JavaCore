@@ -36,12 +36,11 @@ public abstract class Driver {
     @Override
     public String toString() {
         return "Водитель: " +
-                "ФИО: " + name + "\t" +
-                "Стаж: " + stage + "\t" +
-                "Наличие водительских прав: " + driveLicense;
+                "ФИО: " + name + ", " +
+                "стаж: " + stage + ", " +
+                "права: " + driveLicense;
     }
 
-    static Set<Driver> drivers = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
@@ -60,7 +59,6 @@ public abstract class Driver {
         this.name = name;
         this.stage = stage;
         this.driveLicense = driveLicense;
-        drivers.add(this);
     }
 
     public abstract void startMoving();
