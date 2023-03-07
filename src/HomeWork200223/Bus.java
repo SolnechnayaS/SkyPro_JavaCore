@@ -1,11 +1,13 @@
 package HomeWork200223;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverCatD> {
     private Capacity capacity;
 
 
-    public Bus(String brand, String model, double engineVolume, DriverCatD driver, Type type, Capacity capacity) {
-        super(brand, model, engineVolume, driver, type);
+    public Bus(String brand, String model, double engineVolume, DriverCatD driver, Transport.Type type, List <Mechanic> mechanics, Capacity capacity) {
+        super(brand, model, engineVolume, driver, type, mechanics);
         this.capacity = capacity;
     }
 
