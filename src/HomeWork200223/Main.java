@@ -1,9 +1,6 @@
 package HomeWork200223;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 import static HomeWork200223.ServiceStation.addCarToQueue;
 import static HomeWork200223.ServiceStation.checkUp;
@@ -33,6 +30,8 @@ public class Main {
         Transport car3 = new Cars("BMW", "Z8", 3.0, (DriverCatB) driver1, Transport.Type.CAR, List.of(mechanic4), Cars.BodyType.COUPE);
         System.out.println(car3);
         allTransport.add(car3);
+        Transport car3duplicate = new Cars("BMW", "Z8", 3.0, (DriverCatB) driver1, Transport.Type.CAR, List.of(mechanic4), Cars.BodyType.COUPE);
+        allTransport.add(car3duplicate);
         System.out.println();
 
         Driver driver2 = new DriverCatD("Avtobusov A.D.", 5, true, "");
@@ -45,6 +44,8 @@ public class Main {
         Transport bus3 = new Bus("BMWAvtobus", "Z8", 3.0, (DriverCatD) driver2, Transport.Type.BUS, List.of(mechanic6), Bus.Capacity.LARGE);
         System.out.println(bus3);
         allTransport.add(bus3);
+        Transport bus3duplicate = new Bus("BMWAvtobus", "Z8", 3.0, (DriverCatD) driver2, Transport.Type.BUS, List.of(mechanic6), Bus.Capacity.LARGE);
+        allTransport.add(bus3duplicate);
         System.out.println();
 
         Driver driver3 = new DriverCatC("Gruzov G.C.", 10, true, "");
@@ -57,6 +58,8 @@ public class Main {
         Transport truck3 = new Trucks("BMWGruzo", "Z8", 3.0, (DriverCatC) driver3, Transport.Type.TRUCK, List.of(mechanic2, mechanic5), Trucks.Tonnage.N3);
         System.out.println(truck3);
         allTransport.add(truck3);
+        Transport truck3duplicate = new Trucks("BMWGruzo", "Z8", 3.0, (DriverCatC) driver3, Transport.Type.TRUCK, List.of(mechanic2, mechanic5), Trucks.Tonnage.N3);
+        allTransport.add(truck3duplicate);
         System.out.println();
 
         System.out.println("Полный список автомобилей участвующих в гонках: " + allTransport.size() + " шт.");
@@ -75,16 +78,18 @@ public class Main {
 //            System.out.println(e.getMessage());
 //        }
 
-
-//        System.out.println("\nПолный список механиков, осуществляющих ТО:");
-//        System.out.println(Transport.mechanics);
-
-
+        addCarToQueue(queue, car1);
+        addCarToQueue(queue, car2);
+        addCarToQueue(queue, car3);
+        addCarToQueue(queue, car3duplicate);
         addCarToQueue(queue, bus1);
         addCarToQueue(queue, bus2);
-        addCarToQueue(queue, car1);
         addCarToQueue(queue, bus3);
+        addCarToQueue(queue, bus3duplicate);
         addCarToQueue(queue, truck1);
+        addCarToQueue(queue, truck2);
+        addCarToQueue(queue, truck3);
+        addCarToQueue(queue, truck3duplicate);
 
         System.out.println("\nОчередь на ТО составляет: " + queue.size() + " участников");
         System.out.println(queue);
@@ -95,6 +100,14 @@ public class Main {
             checkUp(queue);
         }
 
+        Map <String, String> transportMechanicMap = new HashMap<>();
+        for (Transport t: allTransport) {
+            transportMechanicMap.put(t.getBrand()+" " + t.getModel(), t.getMechanics().toString());
+        }
+
+        System.out.println("\nВ консоль выводится информация об автомобилях без повтора. В мапе в качестве ключей используется другой объект, который является полным аналогом уже существующего объекта.\n"+
+                       "Всего объектов в мапе: " + transportMechanicMap.size());
+        System.out.println(transportMechanicMap);
 
     }
 
