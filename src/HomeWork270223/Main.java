@@ -118,9 +118,9 @@ public class Main {
             checkUp(queue);
         }
 
-        Map <String, String> transportMechanicMap = new HashMap<>();
+        Map <Transport, List> transportMechanicMap = new HashMap<>();
         for (Transport t: allTransport) {
-            transportMechanicMap.put(t.getBrand()+" " + t.getModel(), t.getMechanics().toString());
+            transportMechanicMap.put(t, t.getMechanics());
         }
 
 
